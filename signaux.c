@@ -12,6 +12,21 @@
 
 #include "minishell.h"
 
+# include <string.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <readline/readline.h>
+# include <readline/history.h>
+# include <termios.h>
+#include <signal.h>
+#include <string.h>
+#include <fcntl.h>
+# include <sys/stat.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 
 
@@ -27,7 +42,6 @@ void	handler(int sig_num)
 		printf("\n");
 	rl_on_new_line();
 	rl_replace_line("", 0);
-	printf("test\n");
 	rl_redisplay();
 	return ;
 }
