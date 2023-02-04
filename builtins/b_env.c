@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:16:50 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/29 13:16:50 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 13:51:13 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 int	has_value(char	*str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] == '=')
-				return(1);
+		if (str[i] == '=')
+			return (1);
 		i++;
 	}
-	return(0);
+	return (0);
 }
-
-
-
 
 void	ft_env(t_data_mini *data)
 {
@@ -36,7 +33,7 @@ void	ft_env(t_data_mini *data)
 	i = 0;
 	while (data->env[i])
 	{
-		if(has_value(data->env[i]) == 1)
+		if (has_value(data->env[i]) == 1)
 			printf("%s\n", data->env[i]);
 		i++;
 	}

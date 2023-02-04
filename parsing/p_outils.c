@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:25:07 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/15 15:45:50 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:23:29 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-
-
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int len;
-	int i;
+	int	len;
+	int	i;
 
 	len = ft_strlen(s1);
 	i = 0;
@@ -45,11 +43,9 @@ char	*ft_strcat(char *s1, const char *s2)
 	return (s1);
 }
 
-
-
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (src[i])

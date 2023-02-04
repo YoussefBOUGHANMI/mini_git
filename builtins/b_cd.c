@@ -6,102 +6,104 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:30:38 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/29 18:36:37 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:25:37 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-
 char	*get_var_home(t_data_mini *data)
 {
 	char	*var_to_check;
-	int 	i;
+	int		i;
 
 	i = 0;
-	while(data->env[i])
-    {
-        var_to_check = get_var_to_add(data->env[i]);
-        if(ft_strcmp("HOME" , var_to_check) == 0)
+	while (data->env[i])
+	{
+		var_to_check = get_var_to_add(data->env[i]);
+		if (ft_strcmp("HOME", var_to_check) == 0)
 		{
 			free(var_to_check);
-            return(&data->env[i][5]);
+			return (&data->env[i][5]);
 		}
-        i++;
-        free(var_to_check);
-    }
-	return(NULL);
+		i++;
+		free(var_to_check);
+	}
+	return (NULL);
 }
 
-void ft_cd_bis(t_data_mini *data)
+void	ft_cd_bis(t_data_mini *data)
 {
-	char *home;
-	int ret;
-	char *new_path;
-	char *pwd;
+	char	*home;
+	char	*new_path;
+	char	*pwd;
+	int		ret;
 
 	home = get_var_home(data);
-
-	if(home != NULL)
+	if (home != NULL)
 	{
 		ret = chdir(home);
 		if (ret == -1)
 		{
-			printf("cd: %s: No such file or directory\n" , home);
+			printf("cd: %s: No such file or directory\n", home);
 			data->dollar = 1;
-			return;
+			return ;
 		}
 		data->dollar = 0;
 		pwd = getcwd(NULL, 0);
-		new_path = ft_strjoin("PWD=" , pwd);
-		
-		ft_export_var(data , new_path);
+		new_path = ft_strjoin("PWD=", pwd);
+		ft_export_var(data, new_path);
 		free(pwd);
 		free(new_path);
-		return;
+		return ;
 	}
 	data->dollar = 1;
 	printf("cd: HOME not set\n");
 }
 
-
-void manage_tilde(t_data_mini *data)
+void	manage_tilde(t_data_mini *data)
 {
 	char	*home;
 	char	*new_arg;
-	int 	i;
+	int		i;
 
 	i = 0;
 	home = get_var_home(data);
-	new_arg = ft_strjoin(home , &data->list_cmd->list_token[1][1]);
+	new_arg = ft_strjoin(home, &data->list_cmd->list_token[1][1]);
 	data->list_cmd->list_token[1] = new_arg;
 	free(new_arg);
 }
-void ft_cd(t_data_mini *data) 
-{
-	int ret;
-	char *new_path;
-	char *pwd;
 
-	
-	if(data->list_cmd->list_token[1] && data->list_cmd->list_token[1][0] == '~')
+void	ft_cd_1(t_data_mini *data)
+{
+	printf("cd: %s: No such file or directory\n", data->list_cmd->list_token[1]);
+	data->dollar = 1;
+}
+
+void	ft_cd(t_data_mini *data)
+{
+	char	*new_path;
+	char	*pwd;
+	int		ret;
+
+	if (data->list_cmd->list_token[1]
+		&& data->list_cmd->list_token[1][0] == '~')
 		manage_tilde(data);
-	if(data->list_cmd->list_token[1])
+	if (data->list_cmd->list_token[1])
 	{
 		ret = chdir(data->list_cmd->list_token[1]);
 		if (ret == -1)
 		{
-			printf("cd: %s: No such file or directory\n" , data->list_cmd->list_token[1]);
-			data->dollar = 1;
-			return;
+			ft_cd_1(data);
+			return ;
 		}
 		data->dollar = 0;
 		pwd = getcwd(NULL, 0);
-		new_path = ft_strjoin("PWD=" , pwd );
-		ft_export_var(data , new_path);
+		new_path = ft_strjoin("PWD=", pwd);
+		ft_export_var(data, new_path);
 		free(new_path);
 		free(pwd);
-		return;
+		return ;
 	}
 	ft_cd_bis(data);
 }

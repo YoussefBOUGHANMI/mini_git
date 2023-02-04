@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:26:19 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/14 16:02:22 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:22:41 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	add_space_pipe(t_data_mini *data)
 
 	i = 0;
 	ii = 0;
-	new_str = malloc(sizeof(char) * ((ft_strlen(data->cmd) + count_p(data->cmd) * 2) + 1));
+	new_str = malloc(sizeof(char) * \
+	((ft_strlen(data->cmd) + count_p(data->cmd) * 2) + 1));
 	while (data->cmd[i])
 	{
 		if (data->cmd[i] == '\'' || data->cmd[i] == '\"')
@@ -54,7 +55,13 @@ void	add_space_pipe(t_data_mini *data)
 	new_str[ii] = '\0';
 	free(data->cmd);
 	data->cmd = new_str;
-	//return (new_str);
+}
+
+void	end_add_space(t_data_mini *data, int ii, char *new_cmd)
+{
+	new_cmd[ii] = '\0';
+	free(data->cmd);
+	data->cmd = new_cmd;
 }
 
 void	add_space_redir(t_data_mini *data)
@@ -65,7 +72,8 @@ void	add_space_redir(t_data_mini *data)
 
 	i = 0;
 	ii = 0;
-	new_cmd = malloc(sizeof(char) * (strlen(data->cmd) + count_redir(data->cmd) * 2 +1));
+	new_cmd = malloc(sizeof(char) * \
+	(strlen(data->cmd) + count_redir(data->cmd) * 2 +1));
 	while (data->cmd[i])
 	{
 		if (data->cmd[i] == '\'' || data->cmd[i] == '\"')
@@ -81,7 +89,5 @@ void	add_space_redir(t_data_mini *data)
 			new_cmd[ii++] = ' ';
 		}
 	}
-	new_cmd[ii] = '\0';
-	free(data->cmd);
-	data->cmd = new_cmd;
+	end_add_space(data, ii, new_cmd);
 }

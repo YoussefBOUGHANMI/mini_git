@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:42:26 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/15 16:31:15 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:23:05 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	manage_quote_err(t_data_mini *data)
 {
 	static char	*suite = (char *) NULL;
-	char	*new_cmd;
+	char		*new_cmd;
 
 	if (suite)
 	{
@@ -23,8 +23,7 @@ void	manage_quote_err(t_data_mini *data)
 		suite = (char *) NULL;
 	}
 	if (data->keypipe == 1)
-	{
-	
+	{	
 		termios(0);
 		suite = readline("pipe quote>");
 		termios(1);
@@ -35,15 +34,15 @@ void	manage_quote_err(t_data_mini *data)
 		suite = readline("quote>");
 		termios(1);
 	}
-	new_cmd = ft_strjoin_3(data->cmd , "\n" , suite);
+	new_cmd = ft_strjoin_3(data->cmd, "\n", suite);
 	free(data->cmd);
 	data->cmd = new_cmd;
 }
 
-void manage_pipe(t_data_mini *data)
+void	manage_pipe(t_data_mini *data)
 {
 	static char	*suite = (char *) NULL;
-	char *new_cmd;
+	char		*new_cmd;
 
 	if (suite)
 	{
@@ -53,7 +52,7 @@ void manage_pipe(t_data_mini *data)
 	termios(0);
 	suite = readline("pipe>");
 	termios(1);
-	new_cmd= ft_strjoin(data->cmd, suite);
+	new_cmd = ft_strjoin(data->cmd, suite);
 	free(data->cmd);
 	data->cmd = new_cmd;
 	data->keypipe = 1;

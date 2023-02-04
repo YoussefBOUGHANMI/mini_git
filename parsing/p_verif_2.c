@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:44:26 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/15 16:11:28 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:24:46 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	v_multi_p_bis(char *str)
 
 	laps_1 = 0;
 	laps_2 = 0;
-	while (str[1+laps_1] == ' ')
+	while (str[1 + laps_1] == ' ')
 		laps_1++;
 	while (str[2 + laps_1 + laps_2] == ' ')
 		laps_2++;
@@ -52,7 +52,7 @@ int	v_multi_p_bis(char *str)
 	return (0);
 }
 
-int v_multiple_pipe(char *str)
+int	v_multiple_pipe(char *str)
 {
 	char	q;
 	char	*first;
@@ -89,14 +89,6 @@ int	v_last_el_pipe(char	*str)
 		return (1);
 	return (0);
 }
-
-
-
-
-
-
-
-
 
 int	ft_verif_all(t_data_mini *data)
 {

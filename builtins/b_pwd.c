@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:17:05 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/29 13:17:18 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 14:20:52 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_pwd(t_data_mini *data)
 {
-    (void)(data);
-    printf("%s\n", getcwd(NULL, 0));
-    exit(0);
+	(void)(data);
+	printf("%s\n", getcwd(NULL, 0));
+	exit(0);
 }

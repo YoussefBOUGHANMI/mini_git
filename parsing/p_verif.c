@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 15:23:49 by pschemit          #+#    #+#             */
-/*   Updated: 2023/01/15 16:12:41 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:26:03 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,10 @@ void	count_nb_redir(char *str)
 	while (str[i] == *str)
 		i++;
 	if (i % 2 == 0)
-		printf("parse error near `%c%c'\n", (char)*str , (char)*str);
+		printf("parse error near `%c%c'\n", (char)*str, (char)*str);
 	else
 		printf("parse error near `%c'\n", (char)*str);
 }
-
-
 
 int	verif_redir(char *cmd)
 {

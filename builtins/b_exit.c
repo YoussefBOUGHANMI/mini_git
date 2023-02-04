@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   b_exit.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/04 13:51:20 by pschemit          #+#    #+#             */
+/*   Updated: 2023/02/04 13:52:46 by pschemit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"../minishell.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int neg;
-	int i;
-	int num;
+	int	neg;
+	int	i;
+	int	num;
 
 	i = 0;
 	neg = 1;
 	num = 0;
 	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r')
+		|| str[i] == '\f' || str[i] == '\r')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -26,38 +38,38 @@ int		ft_atoi(const char *str)
 	return (num * neg);
 }
 
-int ft_is_digit(char *str)
+int	ft_is_digit(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if(str[i] < '0' || str[i] > '9')
-			return(0);
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
-
 
 void	ft_exit(t_data_mini *data)
 {
-	if(data->nb_cmd > 1)
-		return;
-	if(data->list_cmd->nb_token >= 2 && ft_is_digit(data->list_cmd->list_token[1]) == 0)
+	if (data->nb_cmd > 1)
+		return ;
+	if (data->list_cmd->nb_token >= 2
+		&& ft_is_digit(data->list_cmd->list_token[1]) == 0)
 	{
 		data->dollar = 1;
-		write(2 , "exit: l: numeric argument required\n" , 36);
+		write(2, "exit: l: numeric argument required\n", 36);
 		exit(255);
 	}
-	if(data->list_cmd->nb_token >= 3)
+	if (data->list_cmd->nb_token >= 3)
 	{
 		data->dollar = 1;
-		write(2 , "exit: too many arguments\n" , 26);
-		return;
+		write(2, "exit: too many arguments\n", 26);
+		return ;
 	}
-	if(data->list_cmd->nb_token == 2)
+	if (data->list_cmd->nb_token == 2)
 	{
 		printf("exit\n");
 		exit(ft_atoi(data->list_cmd->list_token[1]));

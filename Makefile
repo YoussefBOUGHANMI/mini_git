@@ -9,13 +9,12 @@ NAME = minishell
 
 PROJECT = MINISHELL
 
-SRCS = minishell.c split_cmd.c clean_quotes.c outils/outils.c \
+SRCS = minishell.c outils/split_cmd.c outils/clean_quotes.c outils/outils.c outils/ft_itoa.c \
 			parsing/p_add_space.c parsing/p_count.c parsing/p_lexer.c parsing/p_outils.c parsing/p_verif.c parsing/parsing.c \
 			parsing/p_split.c parsing/p_manage_quote_pipe.c  parsing/p_outils_2.c  parsing/p_verif_2.c \
-			find_path/find_path.c manage_dollar.c manage_redir_out.c manage_redir_in.c \
+			find_path/find_path.c  find_path/find_path_2.c outils/manage_dollar.c outils/manage_dollar_2.c redir/manage_redir_out.c redir/manage_redir_in.c redir/manage_redir_in_2.c\
 			builtins/b_builtins.c builtins/b_cd.c builtins/b_echo.c builtins/b_exit.c builtins/b_env.c builtins/b_outils.c builtins/b_pwd.c \
-			builtins/b_export.c builtins/b_unset.c signaux.c 
-
+			builtins/b_export.c builtins/b_export_2.c builtins/b_export_3.c builtins/b_unset.c outils/signaux.c  outils/run_cmd.c outils/run_cmd_2.c
 OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
