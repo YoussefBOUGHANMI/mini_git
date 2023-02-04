@@ -118,7 +118,6 @@ int	ft_verif_all(t_data_mini *data)
 	while (v_last_el_pipe(data->cmd) == 1)
 	{
 		manage_pipe(data);
-		printf("ok\n");
 		return (1);
 	}
 	return (2);

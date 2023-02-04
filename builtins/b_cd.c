@@ -65,12 +65,27 @@ void ft_cd_bis(t_data_mini *data)
 }
 
 
+void manage_tilde(t_data_mini *data)
+{
+	char	*home;
+	char	*new_arg;
+	int 	i;
+
+	i = 0;
+	home = get_var_home(data);
+	new_arg = ft_strjoin(home , &data->list_cmd->list_token[1][1]);
+	data->list_cmd->list_token[1] = new_arg;
+	free(new_arg);
+}
 void ft_cd(t_data_mini *data) 
 {
 	int ret;
 	char *new_path;
 	char *pwd;
+
 	
+	if(data->list_cmd->list_token[1] && data->list_cmd->list_token[1][0] == '~')
+		manage_tilde(data);
 	if(data->list_cmd->list_token[1])
 	{
 		ret = chdir(data->list_cmd->list_token[1]);

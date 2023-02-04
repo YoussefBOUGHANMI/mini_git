@@ -39,10 +39,17 @@ void	ign(int sig_num)
 void	handler(int sig_num)
 {
 	if (sig_num == SIGINT)
+	{
 		printf("\n");
-	rl_on_new_line();
-	rl_replace_line("", 0);
-	rl_redisplay();
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		rl_redisplay();
+	}
+	else
+	{
+		rl_on_new_line();
+		rl_redisplay();
+	}
 	return ;
 }
 

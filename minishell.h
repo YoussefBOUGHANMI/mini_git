@@ -70,7 +70,7 @@ char	*ft_strchr(const char *s, int c);
 void	lexer(t_data_mini *data);
 int		ft_parcing_readline(t_data_mini *data);
 int		ft_strlen(const char *tab);
-
+int	ft_strcmp_export(char *s1, char *s2);
 char	*skeep_qotes(char *str, char c);
 char	**ft_split(const char *s);
 void	add_space_pipe(t_data_mini *data);
