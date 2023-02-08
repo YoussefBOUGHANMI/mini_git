@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 14:26:09 by pschemit          #+#    #+#             */
-/*   Updated: 2023/02/04 20:29:31 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:30:41 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int	did_var_exist(t_data_mini *data, char *token)
 		var_to_check = get_var_to_add(data->env[i]);
 		if (ft_strcmp(token, var_to_check) == 0)
 		{
+			free(var_to_check);
 			return (1);
 		}
 		i++;

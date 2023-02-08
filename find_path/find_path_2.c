@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 14:32:08 by pschemit          #+#    #+#             */
-/*   Updated: 2023/02/04 20:34:59 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:52:27 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,14 @@ int	ft_find_path(t_data_mini *data)
 	char	*token_cmd;
 
 	i = 0;
-	if (data->list_cmd->top_redir == 1)
-		token_cmd = data->list_cmd->cmd_redir[0];
-	else
-		token_cmd = data->list_cmd->list_token[0];
 	while (i++ < data->nb_cmd)
 	{
+		if (data->list_cmd->top_redir == 1)
+			token_cmd = data->list_cmd->cmd_redir[0];
+		else
+			token_cmd = data->list_cmd->list_token[0];
+		if (!token_cmd)
+			return (0);
 		ft_find_path_2(data, token_cmd);
 		if (data->list_cmd->cmd_path == NULL
 			&& ft_is_builtin_1(token_cmd) != 1

@@ -60,13 +60,13 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -rf $(OBJS) 
-	@rm -rf includes/readline
+	@rm -rf includes
 	@printf $(RED)"\r\033[K➜ ["$(PROJECT)"] "$(WHITE)"clean"$(RED)" has been done\n"$(RESET)
 	@printf $(RED)"\r\033[K➜ [READLINE] library folder has been "$(WHITE)"removed"$(RED)"\n"$(RESET)
 
 fclean:
 	@rm -rf $(OBJS)
-	@rm -rf includes/readline
+	@rm -rf includes
 	@rm -rf $(NAME)
 	@printf $(RED)"\r\033[K➜ [READLINE] library folder has been "$(WHITE)"removed"$(RED)"\n"$(RESET)
 	@printf $(RED)"\r\033[K➜ ["$(PROJECT)"] "$(WHITE)"clean"$(RED)" has been done\n"$(RESET)

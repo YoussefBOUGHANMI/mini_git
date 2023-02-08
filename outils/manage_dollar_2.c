@@ -75,7 +75,7 @@ void	manage_dollar(t_data_mini *data)
 	initial_vars(&i, &ii, new_cmd);
 	while (data->cmd[i])
 	{
-		if (data->cmd[i] == '$' )
+		if (data->cmd[i - 1] != '\'' && data->cmd[i] == '$' )
 		{
 			tmp[ii] = '\0';
 			ii = 0;

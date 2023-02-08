@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:20:02 by pschemit          #+#    #+#             */
-/*   Updated: 2023/02/04 20:12:07 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/05 19:02:43 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_clean_all(t_data_mini *data)
 	if (data->list_cmd->top_redir)
 		free(data->list_cmd->cmd_redir);
 	free(data->list_cmd);
+	unlink(".tmp");
 }
 
 char	**ft_init_env(char **env)

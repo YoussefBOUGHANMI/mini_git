@@ -6,7 +6,7 @@
 /*   By: pschemit <pschemit@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:43:41 by pschemit          #+#    #+#             */
-/*   Updated: 2023/02/04 20:29:08 by pschemit         ###   ########.fr       */
+/*   Updated: 2023/02/05 19:02:23 by pschemit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct minishell{
 	t_cmd		*list_cmd;
 }t_data_mini;
 
+void	termios_2(int ctr, t_data_mini *data, char c);
 int		ft_strcmp(char *s1, char *s2);
 char	ft_mot_command(char *str, int i);
 int		verif_quote(char *str, char c, char r);
