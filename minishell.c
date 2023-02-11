@@ -40,6 +40,25 @@ void	ft_clean_all(t_data_mini *data)
 	unlink(".tmp");
 }
 
+char	**manage_no_env()
+{
+
+char	**new_env;
+char	*pwd;
+
+pwd = getcwd(NULL, 0);
+new_env = malloc(4 * sizeof(char *));
+new_env[0] = ft_strjoin("PWD=", pwd);
+free(pwd);
+new_env[1] = malloc((sizeof(char) * 8));
+ft_strcpy(new_env[1],"SHLVL=1");
+new_env[2] = malloc((sizeof(char) * 15));
+ft_strcpy(new_env[2],"_=/usr/bin/env");
+new_env[3] = 0;
+return(new_env);
+}
+
+
 char	**ft_init_env(char **env)
 {
 	char	**new_env;
@@ -48,6 +67,11 @@ char	**ft_init_env(char **env)
 	i = 0;
 	while (env[i])
 		i++;
+	if(i == 0)
+	{
+		new_env = manage_no_env();
+		return(new_env);
+	}
 	new_env = malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (env[i])
@@ -70,8 +94,8 @@ int	main(int ac, char **av, char **env)
 	data.prompt = "MonkeyShell >> ";
 	while (rl_gets_init(&data))
 	{
-		if (data.dollar == 256)
-			data.dollar = 1;
+		if (data.dollar >= 256)
+			data.dollar = data.dollar / 256;
 	}
 	return (0);
 }

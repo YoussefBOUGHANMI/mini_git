@@ -32,7 +32,7 @@ datarootdir = ${prefix}/share
 srcdir = .
 VPATH = ..
 topdir = ..
-BUILD_DIR = /Users/pschemit/Desktop/mini_git/includes/readline
+BUILD_DIR = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -49,10 +49,10 @@ LN = ln
 
 SHELL = /bin/sh
 
-host_os = darwin18.7.0
+host_os = darwin21.5.0
 host_vendor = apple
 
-prefix = /Users/pschemit/Desktop/mini_git/includes/readline
+prefix = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 exec_prefix = ${prefix}
 includedir = ${prefix}/include
 bindir = ${exec_prefix}/bin

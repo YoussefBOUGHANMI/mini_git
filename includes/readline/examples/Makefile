@@ -21,7 +21,7 @@ RL_LIBRARY_VERSION = 8.1
 SHELL = /bin/sh
 RM = rm -f
 
-prefix = /Users/pschemit/Desktop/mini_git/includes/readline
+prefix = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share
@@ -32,7 +32,7 @@ datadir = ${datarootdir}
 
 top_srcdir = ..
 #BUILD_DIR = .
-BUILD_DIR = /Users/pschemit/Desktop/mini_git/includes/readline
+BUILD_DIR = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 installdir = $(datadir)/readline
 
 INSTALL = /usr/bin/install -c

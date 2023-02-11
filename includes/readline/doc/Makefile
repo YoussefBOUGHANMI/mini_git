@@ -22,7 +22,7 @@ topdir = ..
 srcdir = .
 
 
-prefix = /Users/pschemit/Desktop/mini_git/includes/readline
+prefix = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 
 datarootdir = ${prefix}/share
 
@@ -49,7 +49,7 @@ RM = rm -f
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 
-BUILD_DIR = /Users/pschemit/Desktop/mini_git/includes/readline
+BUILD_DIR = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 TEXINPUTDIR = $(srcdir)
 
 MAKEINFO    = LANGUAGE= makeinfo

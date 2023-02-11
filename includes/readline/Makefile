@@ -31,7 +31,7 @@ PACKAGE_TARNAME = readline
 srcdir = .
 
 top_srcdir = .
-BUILD_DIR = /Users/pschemit/Desktop/mini_git/includes/readline
+BUILD_DIR = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 
 INSTALL = /usr/bin/install -c
 INSTALL_PROGRAM = ${INSTALL}
@@ -48,7 +48,7 @@ MV = mv
 
 SHELL = /bin/sh
 
-prefix = /Users/pschemit/Desktop/mini_git/includes/readline
+prefix = /Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 exec_prefix = ${prefix}
 
 datarootdir = ${prefix}/share

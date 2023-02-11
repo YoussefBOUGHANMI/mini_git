@@ -1,4 +1,4 @@
-prefix=/Users/pschemit/Desktop/mini_git/includes/readline
+prefix=/Users/youssefboughanmi/Desktop/travail/mini_git/includes/readline
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

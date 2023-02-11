@@ -19,6 +19,13 @@ void	initial_vars(int *i, int *ii, char *new_cmd)
 	new_cmd = NULL;
 }
 
+void end_manag_doll_inter(t_data_mini *data , int ii , char *new_cmd)
+{
+	new_cmd[ii] = 0;
+	free(data->cmd);
+	data->cmd = new_cmd;
+}
+
 void	manage_dollar_interog(t_data_mini *data)
 {
 	int		i;
@@ -41,11 +48,10 @@ void	manage_dollar_interog(t_data_mini *data)
 			new_cmd[ii++] = nb[iii++];
 			free(nb);
 		}
-		new_cmd[ii++] = data->cmd[i++];
+		else
+			new_cmd[ii++] = data->cmd[i++];
 	}
-	new_cmd[ii] = 0;
-	free(data->cmd);
-	data->cmd = new_cmd;
+	end_manag_doll_inter(data, ii, new_cmd);
 }
 
 void	end_manage_dollar(t_data_mini *data, char *tmp, char *new_cmd, int ii)
